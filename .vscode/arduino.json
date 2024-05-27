@@ -1,0 +1,9 @@
+{
+    "board": "arduino:renesas_uno:unor4wifi",
+    "sketch": "myoware-simulation.ino",
+
+    "port" : "/dev/cu.usbmodemF412FA9B46602",
+    "output": "../build",
+    "postbuild": "./postbuild.sh",
+    "intelliSenseGen": "global"
+}
