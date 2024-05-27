@@ -6,8 +6,8 @@ from datetime import datetime
 
 # Create a serial connection
 ser = serial.Serial('/dev/cu.usbmodemF412FA9B46602', 115200) # change this to the port your Arduino is connected to
-output_csv_path = '/Users/emilyrodgers/Documents/myoware-simulation/output-files/output.csv' # change this to the path where you want to save the CSV file
-output_json_path_template = '/Users/emilyrodgers/Documents/myoware-simulation/output-files/output{:06d}.json' #c hange this to the path where you want to save the JSON files
+output_csv_path = '/Users/emilyrodgers/Documents/myoware-simulation/myoware-simulation/output-files/output.csv' # change this to the path where you want to save the CSV file
+output_json_path_template = '/Users/emilyrodgers/Documents/myoware-simulation/myoware-simulation/output-files/output{:06d}.json' #c hange this to the path where you want to save the JSON files
 event_counter = 0  # Initialize an event counter
 recording = False  # Flag to indicate if recording is active
 
@@ -52,7 +52,7 @@ try:
 
             else:
                 # Assume it's CSV or other data and handle accordingly
-                parts = line.split(',')
+                parts = line.split(',') # Split the line into parts
                 log_to_csv(parts)  # Log the data to CSV
 
 except KeyboardInterrupt:  # If the user presses Ctrl+C
