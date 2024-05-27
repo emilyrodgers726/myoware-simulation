@@ -1,5 +1,3 @@
-// This version of the code is formatting everything correctly but the JSON it needs to send is too large so I'm reqwriting to send each data point over one by one
-
 #include <SPI.h> // for communicating with the SD card
 #include <SD.h> // for reading and writing to the SD card
 #include <ArduinoJson.h> // for parsing JSON data
@@ -73,7 +71,7 @@ void setup() {
   The loop function reads the state of the switch and generates random sensor values based on the switch state.
   If the sensor value is above the threshold, it starts recording the sensor data.
   The sensor data is stored in a csv file and written to the SD card.
-  The JSON object is then serialized and sent via Serial.
+  The JSON object is then serialized and prepared for splitting into manageable BLE sizes for transmission.
 */
 void loop() {
   unsigned long currentTime = millis(); // Get the current time
@@ -185,6 +183,6 @@ void sendBLEData(const String& jsonData) {
       break; // Stop sending if a transmission fails
     }
     pos += sendSize;
-    delay(200); // Adjusted delay
+    delay(1000); // Adjusted delay
   }
 }
